@@ -1,0 +1,14 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+
+<appender name="EventLog" type="log4net.Appender.EventLogAppender">  
+  <filter type="log4net.Filter.LevelRangeFilter">
+    <levelMin value="~LevelMin~"/>
+    <levelMax value="~LevelMax~"/>
+  </filter>
+  <layout type='log4net.Layout.ExceptionLayout' />
+  <!-- name of the 'Event Log' in Event Viewer-->
+  <param name="LogName" value="~EventLogName~" />
+  <!-- name of the 'Source' in Event Viewer-->
+  <param name="ApplicationName" value="~StandardLogName~" />
+  
+</appender>

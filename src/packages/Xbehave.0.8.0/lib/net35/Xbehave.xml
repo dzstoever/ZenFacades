@@ -1,0 +1,407 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Xbehave</name>
+    </assembly>
+    <members>
+        <member name="T:Xbehave.FluentExtensions">
+            <summary>
+            Extensions for a fluent scenario step syntax with auto-generated step names.
+            </summary>
+        </member>
+        <member name="M:Xbehave.FluentExtensions.When(Xbehave.Fluent.IGiven,System.Linq.Expressions.Expression{System.Action})">
+            <summary>
+            This is an experimental feature.
+            </summary>
+            <param name="step">The step.</param>
+            <param name="act">The action that will perform the act.</param>
+            <returns>
+            An instance of <see cref="T:Xbehave.Fluent.IWhen"/>.
+            </returns>
+        </member>
+        <member name="M:Xbehave.FluentExtensions.Then(Xbehave.Fluent.IWhen,System.Linq.Expressions.Expression{System.Action})">
+            <summary>
+            This is an experimental feature.
+            </summary>
+            <param name="step">The step.</param>
+            <param name="assert">The action which will perform the assertion.</param>
+            <returns>
+            An instance of <see cref="T:Xbehave.Fluent.IThen"/>.
+            </returns>
+        </member>
+        <member name="M:Xbehave.FluentExtensions.ThenInIsolation(Xbehave.Fluent.IWhen,System.Linq.Expressions.Expression{System.Action})">
+            <summary>
+            This is an experimental feature.
+            </summary>
+            <param name="step">The step.</param>
+            <param name="assert">The action which will perform the assertion.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IThen"/>.</returns>
+        </member>
+        <member name="M:Xbehave.FluentExtensions.ThenSkip(Xbehave.Fluent.IWhen,System.Linq.Expressions.Expression{System.Action})">
+            <summary>
+            This is an experimental feature.
+            </summary>
+            <param name="step">The step.</param>
+            <param name="assert">The action which would have performed the assertion.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IThen"/>.</returns>
+            <remarks>
+            This is the equivalent of <see cref="P:Xunit.FactAttribute.Skip"/>.
+            E.g. <code>[Fact(Skip = "Work in progress.")]</code>.
+            </remarks>
+        </member>
+        <member name="M:Xbehave.FluentExtensions.Then(Xbehave.Fluent.IThen,System.Linq.Expressions.Expression{System.Action})">
+            <summary>
+            This is an experimental feature.
+            </summary>
+            <param name="step">The step.</param>
+            <param name="assert">The action which will perform the assertion.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IThen"/>.</returns>
+        </member>
+        <member name="M:Xbehave.FluentExtensions.ThenInIsolation(Xbehave.Fluent.IThen,System.Linq.Expressions.Expression{System.Action})">
+            <summary>
+            This is an experimental feature.
+            </summary>
+            <param name="step">The step.</param>
+            <param name="assert">The action which will perform the assertion.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IThen"/>.</returns>
+        </member>
+        <member name="M:Xbehave.FluentExtensions.ThenSkip(Xbehave.Fluent.IThen,System.Linq.Expressions.Expression{System.Action})">
+            <summary>
+            This is an experimental feature.
+            </summary>
+            <param name="step">The step.</param>
+            <param name="assert">The action which would have performed the assertion.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IThen"/>.</returns>
+            <remarks>
+            This is the equivalent of <see cref="P:Xunit.FactAttribute.Skip"/>.
+            E.g. <code>[Fact(Skip = "Work in progress.")]</code>.
+            </remarks>
+        </member>
+        <member name="T:Xbehave.DisposableAction">
+            <summary>
+            This member is deprecated (was part of the original SubSpec API).
+            </summary>
+        </member>
+        <member name="F:Xbehave.DisposableAction.None">
+            <summary>
+            This member is deprecated (was part of the original SubSpec API).
+            </summary>
+        </member>
+        <member name="M:Xbehave.DisposableAction.#ctor(System.Action)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xbehave.DisposableAction"/> class.
+            </summary>
+            <param name="action">The action.</param>
+        </member>
+        <member name="M:Xbehave.DisposableAction.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="T:Xbehave.Fluent.IGiven">
+            <summary>
+            The arrangement of a scenario.
+            </summary>
+        </member>
+        <member name="T:Xbehave.Fluent.IStep">
+            <summary>
+            A scenario step.
+            </summary>
+        </member>
+        <member name="M:Xbehave.Fluent.IStep.WithTimeout(System.Int32)">
+            <summary>
+            Indicate that execution of this step should be cancelled after a specified timeout.
+            </summary>
+            <param name="millisecondsTimeout">The number of milliseconds to wait, or <see cref="F:System.Threading.Timeout.Infinite"/> (-1) to wait indefinitely.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IStep"/>.</returns>
+        </member>
+        <member name="T:Xbehave.Fluent.IThen">
+            <summary>
+            An assertion of an expected outcome of a scenario.
+            </summary>
+        </member>
+        <member name="T:Xbehave.SpecificationExtensions">
+            <summary>
+            Provides extensions for a fluent specification syntax
+            </summary>
+        </member>
+        <member name="M:Xbehave.SpecificationExtensions.Context(System.String,System.Action)">
+            <summary>
+            Records a context setup for this specification.
+            </summary>
+            <param name="message">A message describing the established context.</param>
+            <param name="arrange">The action that will establish the context.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IStep"/>.</returns>
+        </member>
+        <member name="M:Xbehave.SpecificationExtensions.Context(System.String,Xbehave.ContextDelegate)">
+            <summary>
+            Trap for using contexts implementing IDisposable with the wrong overload.
+            </summary>
+            <param name="message">A message describing the established context.</param>
+            <param name="arrange">The action that will establish and return the context for this test.</param>
+        </member>
+        <member name="M:Xbehave.SpecificationExtensions.ContextFixture(System.String,Xbehave.ContextDelegate)">
+            <summary>
+            Records a disposable context for this specification. The context lifecycle will be managed by Xbehave.
+            </summary>
+            <param name="message">A message describing the established context.</param>
+            <param name="arrange">The action that will establish and return the context for this test.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IStep"/>.</returns>
+        </member>
+        <member name="M:Xbehave.SpecificationExtensions.Do(System.String,System.Action)">
+            <summary>
+            Records an action to be performed on the context for this specification.
+            </summary>
+            <param name="message">A message describing the action.</param>
+            <param name="act">The action to perform.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IStep"/>.</returns>
+        </member>
+        <member name="M:Xbehave.SpecificationExtensions.Assert(System.String,System.Action)">
+            <summary>
+            Records an assertion for this specification.
+            Each assertion is executed on an isolated context.
+            </summary>
+            <param name="message">A message describing the expected result.</param>
+            <param name="assert">The action that will verify the expectation.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IStep"/>.</returns>
+        </member>
+        <member name="M:Xbehave.SpecificationExtensions.Observation(System.String,System.Action)">
+            <summary>
+            Records an observation for this specification.
+            All observations are executed on the same context.
+            </summary>
+            <param name="message">A message describing the expected result.</param>
+            <param name="observation">The action that will verify the expectation.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IStep"/>.</returns>
+        </member>
+        <member name="M:Xbehave.SpecificationExtensions.Todo(System.String,System.Action)">
+            <summary>
+            Records a skipped assertion for this specification.
+            </summary>
+            <param name="message">A message describing the expected result.</param>
+            <param name="skippedAction">The action that will verify the expectation.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IStep"/>.</returns>
+        </member>
+        <member name="T:Xbehave.Fluent.IWhen">
+            <summary>
+            An action in a scenario.
+            </summary>
+        </member>
+        <member name="T:Xbehave.StringExtensions">
+            <summary>
+            Extensions for declaring Given, When, Then scenario steps.
+            </summary>
+            <summary>
+            Extensions for declaring Given, When, Then scenario steps.
+            </summary>
+        </member>
+        <member name="M:Xbehave.StringExtensions.Given(System.String,System.Action)">
+            <summary>
+            Records the arrangement for this specification.
+            </summary>
+            <param name="message">A message describing the arrangment.</param>
+            <param name="arrange">The action that will perform the arrangment.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IGiven"/>.</returns>
+        </member>
+        <member name="M:Xbehave.StringExtensions.Given(System.String,System.Func{System.IDisposable})">
+            <summary>
+            Records the disposable arrangement for this specification which will be disposed after all associated assertions have been executed.
+            </summary>
+            <param name="message">A message describing the arrangment.</param>
+            <param name="arrange">The function that will perform and return the arrangement.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IGiven"/>.</returns>
+        </member>
+        <member name="M:Xbehave.StringExtensions.Given(System.String,System.Func{System.Collections.Generic.IEnumerable{System.IDisposable}})">
+            <summary>
+            Records the disposable arrangement for this specification which will be disposed after all associated assertions have been executed.
+            </summary>
+            <param name="message">A message describing the arrangment.</param>
+            <param name="arrange">The function that will perform and return the arrangement.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IGiven"/>.</returns>
+        </member>
+        <member name="M:Xbehave.StringExtensions.Given(System.String,System.Action,System.Action)">
+            <summary>
+            Records the disposable arrangement for this specification which will be disposed after all associated assertions have been executed.
+            </summary>
+            <param name="message">A message describing the arrangment.</param>
+            <param name="arrange">The action that will perform the arrangement.</param>
+            <param name="dispose">The action that will dispose the arrangement.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IGiven"/>.</returns>
+        </member>
+        <member name="M:Xbehave.StringExtensions.When(System.String,System.Action)">
+            <summary>
+            Records the act to be performed on the arrangment for this specification.
+            </summary>
+            <param name="message">A message describing the act.</param>
+            <param name="act">The action that will perform the act.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IWhen"/>.</returns>
+        </member>
+        <member name="M:Xbehave.StringExtensions.ThenInIsolation(System.String,System.Action)">
+            <summary>
+            Records an assertion of an expected outcome for this specification, to be executed on an isolated arrangement and action.
+            </summary>
+            <param name="message">A message describing the assertion.</param>
+            <param name="assert">The action which will perform the assertion.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IThen"/>.</returns>
+        </member>
+        <member name="M:Xbehave.StringExtensions.Then(System.String,System.Action)">
+            <summary>
+            Records an assertion of an expected outcome for this specification, to be executed on a shared arrangement and action.
+            </summary>
+            <param name="message">A message describing the assertion.</param>
+            <param name="assert">The action which will perform the assertion.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IThen"/>.</returns>
+        </member>
+        <member name="M:Xbehave.StringExtensions.ThenSkip(System.String,System.Action)">
+            <summary>
+            Records a skipped assertion of an expected outcome for this specification.
+            </summary>
+            <param name="message">A message describing the assertion.</param>
+            <param name="assert">The action which would have performed the assertion.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IThen"/>.</returns>
+            <remarks>
+            This is the equivalent of <see cref="P:Xunit.FactAttribute.Skip"/>.
+            E.g. <code>[Fact(Skip = "Work in progress.")]</code>.
+            </remarks>
+        </member>
+        <member name="M:Xbehave.StringExtensions.GivenDisposable(System.String,Xbehave.ContextDelegate)">
+            <summary>
+            Deprecated in version 0.4.0.
+            </summary>
+            <param name="message">A message describing the arrangment.</param>
+            <param name="arrange">The function that will perform and return the arrangement.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IStep"/>.</returns>
+        </member>
+        <member name="T:Xbehave.SpecificationAttribute">
+            <summary>
+            This member is deprecated (was part of the original SubSpec API).
+            </summary>
+        </member>
+        <member name="T:Xbehave.ScenarioAttribute">
+            <summary>
+            Applied to a method to indicate a scenario that should be run by the test runner.
+            A scenario can also be fed from a data source, mapping to parameters on the scenario method.
+            If the data source contains multiple rows, then the scenario method is executed multiple times (once with each data row).
+            Data can be fed to the scenario by applying one or more instances of <see cref="T:Xbehave.ScenarioDataAttribute"/>
+            or any other attribute inheriting from <see cref="T:Xunit.Extensions.DataAttribute"/>.
+            E.g. <see cref="T:Xunit.Extensions.ClassDataAttribute"/>,
+            <see cref="T:Xunit.Extensions.OleDbDataAttribute"/>,
+            <see cref="T:Xunit.Extensions.SqlServerDataAttribute"/>,
+            <see cref="T:Xunit.Extensions.ExcelDataAttribute"/> or
+            <see cref="T:Xunit.Extensions.PropertyDataAttribute"/>.
+            </summary>    
+        </member>
+        <member name="M:Xbehave.ScenarioAttribute.EnumerateTestCommands(Xunit.Sdk.IMethodInfo)">
+            <summary>
+            Enumerates the test commands represented by this test method.
+            Derived classes should override this method to return instances of <see cref="T:Xunit.Sdk.ITestCommand"/>, one per execution of a test method.
+            </summary>
+            <param name="method">The test method</param>
+            <returns>The test commands which will execute the test runs for the given method.</returns>
+        </member>
+        <member name="T:Xbehave.ThesisAttribute">
+            <summary>
+            This member is deprecated.
+            </summary>
+        </member>
+        <member name="T:Xbehave._">
+            <summary>
+            Provides a scenario step syntax an auto-generated step name.
+            </summary>
+        </member>
+        <member name="M:Xbehave._.Given(System.Linq.Expressions.Expression{System.Action})">
+            <summary>
+            This is an experimental feature.
+            </summary>
+            <param name="arrange">The action that will perform the arrangment.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IGiven"/>.</returns>
+        </member>
+        <member name="M:Xbehave._.Given(System.Linq.Expressions.Expression{System.Func{System.IDisposable}})">
+            <summary>
+            This is an experimental feature.
+            </summary>
+            <param name="arrange">The function that will perform and return the arrangement.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IGiven"/>.</returns>
+        </member>
+        <member name="M:Xbehave._.Given(System.Linq.Expressions.Expression{System.Func{System.Collections.Generic.IEnumerable{System.IDisposable}}})">
+            <summary>
+            This is an experimental feature.
+            </summary>
+            <param name="arrange">The function that will perform and return the arrangement.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IGiven"/>.</returns>
+        </member>
+        <member name="M:Xbehave._.Given(System.Linq.Expressions.Expression{System.Action},System.Action)">
+            <summary>
+            This is an experimental feature.
+            </summary>
+            <param name="arrange">The action that will perform the arrangement.</param>
+            <param name="dispose">The action that will dispose the arrangement.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IGiven"/>.</returns>
+        </member>
+        <member name="M:Xbehave._.When(System.Linq.Expressions.Expression{System.Action})">
+            <summary>
+            This is an experimental feature.
+            </summary>
+            <param name="act">The action that will perform the act.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IWhen"/>.</returns>
+        </member>
+        <member name="M:Xbehave._.Then(System.Linq.Expressions.Expression{System.Action})">
+            <summary>
+            This is an experimental feature.
+            </summary>
+            <param name="assert">The action which will perform the assertion.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IThen"/>.</returns>
+        </member>
+        <member name="M:Xbehave._.ThenInIsolation(System.Linq.Expressions.Expression{System.Action})">
+            <summary>
+            This is an experimental feature.
+            </summary>
+            <param name="assert">The action which will perform the assertion.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IThen"/>.</returns>
+        </member>
+        <member name="M:Xbehave._.ThenSkip(System.Linq.Expressions.Expression{System.Action})">
+            <summary>
+            This is an experimental feature.
+            </summary>
+            <param name="assert">The action which would have performed the assertion.</param>
+            <returns>An instance of <see cref="T:Xbehave.Fluent.IThen"/>.</returns>
+            <remarks>
+            This is the equivalent of <see cref="P:Xunit.FactAttribute.Skip"/>.
+            E.g. <code>[Fact(Skip = "Work in progress.")]</code>.
+            </remarks>
+        </member>
+        <member name="T:Xbehave.ContextDelegate">
+            <summary>
+            This member is deprecated (was part of the original SubSpec API).
+            </summary>
+            <returns>An instance of <see cref="T:System.IDisposable"/>.</returns>
+        </member>
+        <member name="T:Xbehave.ScenarioDataAttribute">
+            <summary>
+            Provides a data source for a scenario, with the data coming from inline values.
+            This attribute is designed as a synonym of <see cref="T:Xunit.Extensions.InlineDataAttribute"/>,
+            which is the most commonly used data attribute, but you can also use any type of attribute derived from
+            <see cref="T:Xunit.Extensions.DataAttribute"/> to provide a data source for a scenario.
+            E.g. <see cref="T:Xunit.Extensions.ClassDataAttribute"/>,
+            <see cref="T:Xunit.Extensions.OleDbDataAttribute"/>,
+            <see cref="T:Xunit.Extensions.SqlServerDataAttribute"/>,
+            <see cref="T:Xunit.Extensions.ExcelDataAttribute"/> or
+            <see cref="T:Xunit.Extensions.PropertyDataAttribute"/>.
+            </summary>
+        </member>
+        <member name="M:Xbehave.ScenarioDataAttribute.#ctor(System.Object[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xbehave.ScenarioDataAttribute"/> class.
+            This attribute is designed as a synonym of <see cref="T:Xunit.Extensions.InlineDataAttribute"/>,
+            which is the most commonly used data attribute, but you can also use any type of attribute derived from
+            <see cref="T:Xunit.Extensions.DataAttribute"/> to provide a data source for a scenario.
+            E.g. <see cref="T:Xunit.Extensions.ClassDataAttribute"/>,
+            <see cref="T:Xunit.Extensions.OleDbDataAttribute"/>,
+            <see cref="T:Xunit.Extensions.SqlServerDataAttribute"/>,
+            <see cref="T:Xunit.Extensions.ExcelDataAttribute"/> or
+            <see cref="T:Xunit.Extensions.PropertyDataAttribute"/>.
+            </summary>
+            <param name="dataValues">The data values to pass to the scenario.</param>
+        </member>
+    </members>
+</doc>

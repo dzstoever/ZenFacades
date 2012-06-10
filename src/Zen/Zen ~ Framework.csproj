@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4D1B27DD-AD19-4405-90C0-E03BAD50FEBF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Zen</RootNamespace>
+    <AssemblyName>Zen</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\DomainEntity.cs" />
+    <Compile Include="Crypto.cs" />
+    <Compile Include="Data\NoDao.cs" />
+    <Compile Include="Exceptions.cs" />
+    <Compile Include="Core\DomainObject.cs" />
+    <Compile Include="Core\DomainRules\ValidateRule.cs" />
+    <Compile Include="Core\DomainRules\ValidateCompare.cs" />
+    <Compile Include="Core\DomainRules\ValidateCreditcard.cs" />
+    <Compile Include="Core\DomainRules\ValidateEmail.cs" />
+    <Compile Include="Core\DomainRules\ValidateId.cs" />
+    <Compile Include="Core\DomainRules\ValidateIPAddress.cs" />
+    <Compile Include="Core\DomainRules\ValidateLength.cs" />
+    <Compile Include="Core\DomainRules\ValidateRange.cs" />
+    <Compile Include="Core\DomainRules\ValidateRegex.cs" />
+    <Compile Include="Core\DomainRules\ValidateRequired.cs" />
+    <Compile Include="Core\DomainRules\ValidationDataType.cs" />
+    <Compile Include="Core\DomainRules\ValidationOperator.cs" />
+    <Compile Include="Core\Components\AddressInfo.cs" />
+    <Compile Include="Core\Components\ContactInfo.cs" />
+    <Compile Include="Core\Components\NameInfo.cs" />
+    <Compile Include="Core\Components\PhoneInfo.cs" />
+    <Compile Include="Core\UidManager.cs" />
+    <Compile Include="Core\IDomainEntity.cs" />
+    <Compile Include="Core\IDomainObject.cs" />
+    <Compile Include="Data\IGenericDao.cs" />
+    <Compile Include="Data\ISimpleDao.cs" />
+    <Compile Include="Data\QueryModel\Enums\CacheModes.cs" />
+    <Compile Include="Data\QueryModel\Enums\CriteriaOperators.cs" />
+    <Compile Include="Data\QueryModel\Criterion.cs" />
+    <Compile Include="Data\QueryModel\Enums\FetchModes.cs" />
+    <Compile Include="Data\QueryModel\Enums\IsolationLevels.cs" />
+    <Compile Include="Data\QueryModel\Enums\LockModes.cs" />
+    <Compile Include="Data\QueryModel\OrderClause.cs" />
+    <Compile Include="Data\QueryModel\Enums\OrderDirections.cs" />
+    <Compile Include="Data\QueryModel\Parameter.cs" />
+    <Compile Include="Data\QueryModel\Query.cs" />
+    <Compile Include="Data\QueryModel\Enums\QueryTypes.cs" />
+    <Compile Include="Ioc\SingletonDI.cs" />
+    <Compile Include="Ioc\WindsorDI.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="IStartup.cs" />
+    <Compile Include="Log\Enums\LogLevel.cs" />
+    <Compile Include="Log\Enums\OnOff.cs" />
+    <Compile Include="ImplChecker.cs" />
+    <Compile Include="ImplProvider.cs" />
+    <Compile Include="AsyncResult.cs" />
+    <Compile Include="Svcs\DataModel\FacadeDto.cs" />
+    <Compile Include="Svcs\IocInstanceProvider.cs" />
+    <Compile Include="Svcs\RoundRobinList.cs" />
+    <Compile Include="Svcs\Contracts\IRemoteFacade.cs" />
+    <Compile Include="Svcs\Contracts\ISecureSignon.cs" />
+    <Compile Include="Svcs\Contracts\ISecureVault.cs" />
+    <Compile Include="Svcs\Messages\Acknowlege.cs" />
+    <Compile Include="Svcs\Messages\PersistTypes.cs" />
+    <Compile Include="Svcs\Messages\RxRe-Base.cs" />
+    <Compile Include="Svcs\Messages\RxRe-Facade.cs" />
+    <Compile Include="Svcs\Messages\RxRe-Login.cs" />
+    <Compile Include="Svcs\Messages\RxRe-Logout.cs" />
+    <Compile Include="Svcs\Messages\RxRe-Sensitive.cs" />
+    <Compile Include="Svcs\Messages\RxRe-Token.cs" />
+    <Compile Include="Ux\INavigationController.cs" />
+    <Compile Include="Ux\IView %28markers%29.cs" />
+    <Compile Include="Ux\IViewFactory.cs" />
+    <Compile Include="Ux\IViewModel %28markers%29.cs" />
+    <Compile Include="Aspects.cs" />
+    <Compile Include="Log\Enums\Appenders.cs" />
+    <Compile Include="Log\ILogger.cs" />
+    <Compile Include="Ioc\IocDI.cs" />
+    <Compile Include="Log\Log4netConfigurator.cs" />
+    <Compile Include="Log\Log4netErrorHandler.cs" />
+    <Compile Include="Log\Log4netLogger.cs" />
+    <Compile Include="Log\NoLogger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Log\Appenders\Console.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Log\Appenders\Debug.xml" />
+    <EmbeddedResource Include="Log\Appenders\EventLog.xml" />
+    <EmbeddedResource Include="Log\Appenders\File.xml" />
+    <EmbeddedResource Include="Log\Appenders\NHibernate.xml" />
+    <EmbeddedResource Include="Log\Appenders\Rtb.xml" />
+    <EmbeddedResource Include="Log\Appenders\Smtp.xml" />
+    <EmbeddedResource Include="Log\Appenders\Sql.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Log\Appenders\Trace.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,51 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+<!-- 
+Logs to the RTB in the calling application specified as follows: 
+log4net.Appender.RichTextBoxAppender.SetRichTextBox(this.uxRtbLog, 'RtbAppender')
+Example: mapping child elements & their defaults
+          backColorName = 'ControlLight';
+          textColorName = 'ControlText';            
+          bold = false;
+          italic = false;            
+          pointSize = 0;          \\defaults to Rtb setting            
+          fontFamilyName = null;  \\defaults to Rtb setting -->
+<appender name='Rtb' type='Zen.Log.Appenders.RtbAppender, Zen'>
+  <filter type="log4net.Filter.LevelRangeFilter">
+    <levelMin value="~LevelMin~"/>
+    <levelMax value="~LevelMax~"/>
+  </filter>
+  <layout type='log4net.Layout.PatternLayout'>
+    <conversionPattern value='~DefaultPattern~'/>
+  </layout>
+  <mapping>
+    <level value='DEBUG' />
+    <backColorName value='Black' />
+    <textColorName value='LimeGreen' />
+    <bold value='true' />
+  </mapping>
+  <mapping>
+    <level value='INFO' />
+    <backColorName value='Black' />
+    <textColorName value='White' />
+    <bold value='true' />
+  </mapping>
+  <mapping>
+    <level value='WARN' />
+    <backColorName value='Black' />
+    <textColorName value='Yellow' />
+    <bold value='true' />
+  </mapping>
+  <mapping>
+    <level value='ERROR' />
+    <backColorName value='Black' />
+    <textColorName value='HotPink' />
+    <bold value='true' />
+  </mapping>
+  <mapping>
+    <level value='FATAL' />
+    <backColorName value='Black' />
+    <textColorName value='Red' />
+    <bold value='true' />
+  </mapping>
+</appender>
+ 

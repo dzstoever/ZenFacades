@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+
+<appender name='Smtp' type='log4net.Appender.SmtpAppender'>
+  <!-- no filtering -->
+  <layout type='log4net.Layout.ExceptionLayout' />  
+  <evaluator type='log4net.Core.LevelEvaluator'>
+    <!--The email is sent for this max level-->
+    <threshold value='Fatal' />             
+  </evaluator>
+  <!-- The buffer contains all messages with this min level -->
+  <Threshold value='Error' />               
+  <lossy value='true' />                    
+  <!-- Send all previous messages in the buffer up to this K -->
+  <bufferSize value='128' />                
+  <smtpHost value='~SmtpHost~' />  
+  <!-- Comma-delimited list (Format must be xxx@xxx.xxx)-->
+  <to value='~SmtpEmailTo~' />                  
+  <from value='~SmtpEmailFrom~' />
+  <subject value='~SmtpEmailSubject~' />  
+</appender>
+
+
+
+ 

@@ -1,0 +1,20 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+
+<appender name="Sql" type="log4net.Appender.AdoNetAppender">
+  <filter type="log4net.Filter.LevelRangeFilter">
+    <levelMin value="~LevelMin~"/>
+    <levelMax value="~LevelMax~"/>
+  </filter>
+  <connectionType value="System.Data.SqlClient.SqlConnection, System.Data, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <connectionString value="~SqlCnnString~" />
+  <commandText value="~SqlProcName~" />
+  <commandType value="StoredProcedure" />  
+  <parameter>
+    <parameterName value="@MsgText" />
+    <dbType value="String" />
+    <size value="2000" />
+    <layout type="log4net.Layout.PatternLayout" value="%message" />
+  </parameter>
+  <!-- Write the message immediately - if not, the messages will be buffered and probably not be written until the app exits -->
+  <bufferSize value="0" />
+</appender>
