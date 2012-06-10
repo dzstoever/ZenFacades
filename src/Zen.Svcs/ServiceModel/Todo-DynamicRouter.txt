@@ -1,0 +1,15 @@
+﻿THE CODE IS NOT PRODUCTION QUALITY, yet.
+ 
+It currently: 
+	1) configures a router dynamically, 
+	2) makes it load-balance, 
+	3) populates its routing table based on UDP discovery.
+
+
+It needs:	
+	1) an implementation of a peer to peer host class (alternative to UDP discovery).
+	2) error handling
+	3) endpoint cleanup
+		- if a service does not respond, remove it from the routing list.
+	4) support for multiple service contracts (currently supports IRemoteFacade)
+	5) repository to store EndpointDiscoveryMetadata (shared between routers).
