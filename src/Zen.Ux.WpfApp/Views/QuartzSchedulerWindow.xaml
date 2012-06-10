@@ -1,0 +1,25 @@
+﻿<Window x:Class="Zen.Ux.WpfApp.Views.QuartzSchedulerWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Scheduler" Height="251" Width="445" Background="#FF001645" Icon="..\Images\wpf.ico"
+    ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Loaded="WindowLoaded">
+    
+  <Grid>
+    
+      <Image Margin="21,18,0,0" Name="SchedulerImage" Stretch="Fill" HorizontalAlignment="Left" Width="100" Height="100" VerticalAlignment="Top" 
+           Source="{Binding SchedulerId, Converter={StaticResource MyImageConverter}, ConverterParameter=Large}" />
+        
+      <Label Height="28" Margin="156,25,134,0" Name="label1" VerticalAlignment="Top" Foreground="White">Name:</Label>        
+      <Label Height="28" Margin="156,57,140,0" Name="label2" VerticalAlignment="Top" Foreground="White">Cluster:</Label>        
+      <Label Margin="156,90,140,0" Name="label3" Height="28" VerticalAlignment="Top" Foreground="White">Type:</Label>        
+      <TextBox Height="25" TabIndex="0" HorizontalAlignment="Right" Margin="0,28,28,0" Name="textBoxScheduler" VerticalAlignment="Top" Width="155" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />              
+      <TextBox Height="25" TabIndex="1" HorizontalAlignment="Right" Margin="0,60,28,0" Name="textBoxCluster" VerticalAlignment="Top" Width="155" Text="{Binding Cluster, UpdateSourceTrigger=PropertyChanged}" />        
+      <TextBox Height="25" TabIndex="2" HorizontalAlignment="Right" Margin="0,92,28,0" Name="textBoxSchedType" VerticalAlignment="Top" Width="155" Text="{Binding SchedType, UpdateSourceTrigger=PropertyChanged}" />        
+      <Label Margin="188,0,-3,59" Name="LabelNewMessage1" Visibility="Hidden" Foreground="Salmon" Height="27" VerticalAlignment="Bottom">Enter data, and tab out of</Label>        
+      <Label Foreground="Salmon" Height="27" Margin="188,0,12,46" Name="LabelNewMessage2" VerticalAlignment="Bottom" Visibility="Hidden">textboxes to enable Save button.</Label>        
+      <Button Margin="188,0,160,17" Name="buttonSave" IsDefault="True" Click="ButtonSaveClick" Height="23" VerticalAlignment="Bottom">Save</Button>        
+      <Button HorizontalAlignment="Right" Margin="0,0,72,17" Name="buttonCancel" Width="75" IsCancel="True" Height="23" VerticalAlignment="Bottom" Click="ButtonCancelClick">Cancel</Button>
+    
+  </Grid>
+
+</Window>

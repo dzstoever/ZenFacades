@@ -1,0 +1,26 @@
+﻿<Window x:Class="Zen.Ux.WpfApp.SignonScreen"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Sign on" Height="234" Width="357" ResizeMode="NoResize" 
+    WindowStartupLocation="CenterOwner" Background="AliceBlue" Icon=".\Images\users.ico">
+    
+  <Grid >    
+      <TextBlock Margin="152,12,0,0" VerticalAlignment="Top">
+          <Hyperlink Click="HyperlinkClick"><Run Text="What are my credentials?"/></Hyperlink>
+      </TextBlock>
+      <GroupBox Margin="25,34,28,55" Header="Credentials"/>
+        
+      <Label x:Name="label1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,60,0,0"  Width="65" Content="Username:"/>
+      <Label x:Name="label2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,95,0,0" Width="65" Content="Password:" />    
+      
+      <TextBox x:Name="usernameBox" Margin="152,63,45,109" Text="leroy" TabIndex="1" />    
+      <PasswordBox x:Name="passwordBox" Margin="152,98,45,75" Password="secret123" TabIndex="2" />    
+      
+      <Button x:Name="buttonOK" Width="80" Height="24.5" Margin="81.857,0,0,17"  HorizontalAlignment="Left" VerticalAlignment="Bottom"  
+              IsDefault="True" Click="ButtonOkClick" Content="OK" TabIndex="3" />
+        
+      <Button x:Name="buttonCancel" Width="80" Height="24.5" Margin="0,0,88.143,17" HorizontalAlignment="Right"  VerticalAlignment="Bottom" 
+              IsCancel="True" Content="Cancel" TabIndex="4" />    
+  </Grid>
+    
+</Window>
