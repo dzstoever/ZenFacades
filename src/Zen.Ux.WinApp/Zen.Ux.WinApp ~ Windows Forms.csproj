@@ -109,11 +109,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Zen.BS\Zen.BS ~ Bootstrapper.csproj">
+    <ProjectReference Include="..\Zen.Svcs.Bootstrap\Zen.Svcs.Bootstrap ~ Shells %284WNH%29.csproj">
       <Project>{EEC581C9-8FC7-474D-8942-83F5D325923B}</Project>
       <Name>Zen.BS ~ Bootstrapper</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Zen.Svcs\Zen.Svcs ~ WCF Services.csproj">
+    <ProjectReference Include="..\Zen.Svcs\Zen.Svcs ~ WCF.csproj">
       <Project>{C171F5FC-10C4-4F1C-B937-148D35105C65}</Project>
       <Name>Zen.Svcs ~ WCF Services</Name>
     </ProjectReference>
