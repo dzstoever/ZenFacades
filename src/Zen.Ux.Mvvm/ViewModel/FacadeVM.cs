@@ -7,14 +7,14 @@ namespace Zen.Ux.Mvvm.ViewModel
     //convenient structure for the View
     public class FacadeVM : BaseVM, IViewModel
     {
-        private readonly IProvider _provider;
-        private FacadeBmo _currentFacade;
-
         public FacadeVM(IProvider provider)
         {
-            _provider = provider;
-            _provider.Login("leroy","abc123");
+            Provider = provider;            
         }
+
+        public IProvider Provider { get; private set; }
+
+        public bool IsLoaded { private set; get; }
 
         public ObservableCollection<FacadeBmo> Facades { get; private set; }
 
@@ -30,16 +30,15 @@ namespace Zen.Ux.Mvvm.ViewModel
                 }
             }
         }
-        
-        public bool IsLoaded { private set; get; }
-     
+        private FacadeBmo _currentFacade;
 
+        
         public void LoadFacades()
         {
-            Facades = _provider.GetFacades();
+            Facades = Provider.GetFacades();
 
-            foreach (var entity in Facades)
-                Facades.Add(entity);
+            //foreach (var facade in Facades)
+            
 
             if (Facades.Count > 0)
                 CurrentFacade = Facades[0];
@@ -47,7 +46,7 @@ namespace Zen.Ux.Mvvm.ViewModel
             IsLoaded = true;
         }
 
-        public void UnloadSchedulers()
+        public void UnloadFacades()
         {
             // clear entitys from display.
             Facades.Clear();

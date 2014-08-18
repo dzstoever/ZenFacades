@@ -1,0 +1,169 @@
+﻿'Job Scheduler and Notification Manager' User Stories
+	- a job is considered any batch style program that executes a .exe, .ps, or .sql proc
+	- a notification is a special job-type that sends a message to another entity in the domain
+		- these may read information from a datasource, respond to system events, or may just 
+		  send message at a given interval as a tickler for an action that must be completed 
+
+/* user access (and security)
+ **************************************************************************************************
+ * Security is handled by a wcf service layer providing a single point of entry into the system
+ * Access is granted based on token authentication (granted to an individual or group)
+ * Users can ONLY interact with certain services or portions of services based on their token
+ * All system services are defined by specific contracts
+ *
+ *	Note:	while we will refer to the 'user' in these use cases it is always the wcf service
+ *			performing the actions and providing the results to one or more thin client(s).  
+ *			This gives the system total control over a 'single point of entry' and the ability 
+ *			to provide security and/or encryption for all critical, proprietery and sensitive 
+ *			information presented to the end user (or other consumer of the service).
+ *
+ *	1 - The system can grant an authentication token to a user or group
+ *	
+ *	2 - The system can revoke an authentication token 
+ *
+ *	3 - The user is able to log into the system and be authenticated	
+ *
+ *	4 - The user is able to log out of the system
+ *
+ *	5 - The user can only access appropriate services and functions
+ *		- the user is associated with the proper security level/context
+ *		* all public service members should take ISecurityContext as a parameter
+ *
+ *	6 - The system provides encryption of sensitive information
+ *
+ */
+
+
+/* jobs (and groups) 
+ **************************************************************************************************
+ * Since all data is stored in a common repository these will apply to all 'System schedulers'
+ *
+ *	1 - The user can add/edit/delete a job
+ *
+ *	2 - The user can add/edit/delete a group
+ *		- delete only available if the group has no jobs
+ *
+ *	3 - The user can assign/change a job's group
+ *
+ */
+
+
+/* triggers (and calenders)
+ **************************************************************************************************
+ * Changes to triggers should only affect 'System schedulers'
+ *
+ *	1 - The user can add/edit/delete a trigger to/from a job
+ *		- Simple triggers can be interpreted and displayed
+ *		- Cron triggers can be interpreted and displayed
+ *
+ *  2 - The user can enable/disable a trigger
+ *
+ *	3 - The user can create a calender
+ *		- it can be a applied to a job group
+ *
+ */
+
+
+/* listeners *move to Monitor
+ **************************************************************************************************
+ *	1 - The user can add/edit/delete a listener
+ *		- from a scheduler (cluster) 
+ *		- from a group
+ *		- from a job
+ *
+ *  2 - The can view a list of listeners
+ *		- for a scheduler (cluster) 
+ *		- from a group
+ *		- from a job
+ */
+
+
+/* local scheduler ('job runner')
+ **************************************************************************************************
+ * One scheduler runs as a local instance in the application process (app domain)
+ * It provides the user with the ability to execute(trigger) any job from any group 
+ * 
+ *	Note:	there is no option offered to abort(stop) a job once it is executing(started). 
+ *
+ *	Note:	certain jobs/groups could be excluded from this functionality, if necessary
+ *
+ *	1 - The user can view a list of available jobs 
+ *		- the view must group/filter by the job group
+ *		- the view must show a list of triggers assigned to each job
+ *		- the view must show the last and next run time for each job
+ *		- the view must show the result of the last run for each job
+ *	
+ *	2 - The user can interact with an available job
+ *		- the system can get a job reference from the scheduler
+ *		
+ *	3 - The user can control [Execute] an available job
+ *		- a real-time monitor is shown while it is executing
+ *		- a notification is shown when the job completes 
+ */
+
+
+
+/* remote scheduler ('system clusters')
+ **************************************************************************************************
+ * All system schedulers are remote instances hosted in win services running on app servers
+ * a cluster is a set of schedulers responsible for running the same group(s) of job(s)
+ *
+ *	Note:	The user CAN NOT trigger a job to be run by any system scheduler,  
+ *			they must use the on-demand scheduler
+ *	 
+ *	1 - The user can add a remote scheduler to the system.(localhost only)
+ *		- installs the windows service
+ *		- adds the config data to the repository
+ *		- assigns the scheduler to a default cluster 
+ *	
+ *	2 - The user can delete a remote scheduler from the system.(localhost only)
+ *		- uninstalls the windows service
+ *		- updates or deletes the config data in the repository
+ *		- removes the scheduler from all clusters 
+ *
+ *	3 - The user can view a list of available schedulers 
+ *		- the view must group/filter by the cluster(context)
+ *		- the view must group/filter by the status (win service [Running-Stopped]) 
+ *
+ *	4 - The user can control a scheduler's underlying win service host [Run-Stop] 
+ *	 	
+ *	5 - The user can assign/change/remove a scheduler from a cluster
+ *		
+ *	6 - The user can interact with an available scheduler
+ *		- the system can read configuration data/scheduler details from the repository
+ *		- the system can instantiate the scheduler instance based on the config data
+ *		
+ *	7 - The user can control [Start-Shutdown-Pause-Resume] an available scheduler
+ *		* the following should apply to all schedulers in the given cluster
+ *			- this should be available for (All triggers in all groups)
+ *			- this should be available for (All triggers in a specific group)
+ *			- this should be available for (All triggers for a speciic job)
+ *			- this should be available for (Single trigger for a speciic job)
+ *
+ *	8 - The user can view a real-time monitor of all jobs on all schedulers
+ *		- the view must group/filter by the cluster(context)
+ *		- the view must group/filter by the job group
+ *	
+ */
+
+
+//core (domain)
+//public class when_using_a_ZenScheduler{ }
+
+//data (orm)
+//public class when_using_a_ZenScheduler_Repository { }
+
+//service (wcf)
+//public class when_using_a_ZenScheduler_WcfService { }
+    
+//ux (win)
+//public class a_list_can_be_presented_to_a_win_user { }
+
+//ux (wpf)
+//public class a_list_can_be_presented_to_a_wpf_user { }
+
+//ux (web)
+//public class a_list_can_be_presented_to_a_web_user { }
+
+//ux (silverlight)
+//public class a_list_can_be_presented_to_a_silver_user { }

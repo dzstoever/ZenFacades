@@ -55,7 +55,8 @@ namespace Zen.Ux.WpfApp
         /// </summary>        
         private void BootstrapStartupComplete()
         {
-            AppController.AttachNavigator(new AppNavigator(WpfShell.ViewFactory));
+            var navigator = new AppNavigator(WpfShell.ViewFactory);
+            AppController.AttachNavigator(navigator);
             var mainView = WpfShell.ViewFactory.CreateView<IMainView>();                        
             Application.Current.MainWindow = (Window)mainView;
             mainView.Show();

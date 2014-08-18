@@ -14,7 +14,7 @@ namespace Zen.Ux.WinApp.Mvp
 
         static Navigator()
         {
-            DI = ZenProvider.GetIocDI();
+            DI = Aspects.GetIocDI();
         }
 
         private static void ShowFormView(Form form)

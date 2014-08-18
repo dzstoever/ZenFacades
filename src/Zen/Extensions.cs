@@ -31,7 +31,9 @@ namespace Zen
         public static string GetElapsedTime(this DateTime str, bool includeMs)
         {
             var elapsed = DateTime.Now.Subtract(str).ToString();
-            return !includeMs ? elapsed.Remove(elapsed.LastIndexOf('.')) : elapsed;
+            if (elapsed.Contains(".")) 
+                return !includeMs ? elapsed.Remove(elapsed.LastIndexOf('.')) : elapsed;
+            return elapsed;
         }
 
 

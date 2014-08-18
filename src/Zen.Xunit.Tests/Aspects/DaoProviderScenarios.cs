@@ -142,7 +142,7 @@ namespace Zen.Xunit
 
         [Scenario]
         [InlineData(new object[] { true, typeof(NHibernateDao) })]     //internal impl
-        //[InlineData(new object[] { false, null })]   //no default impl
+        [InlineData(new object[] { false, null })]   //no default impl
         public virtual void GetImpl_NoSettings(bool dllExists, Type expected)
         {
             _moqChecker.Setup(s => s.CheckForDll(DllName)).Returns(dllExists);
@@ -165,7 +165,7 @@ namespace Zen.Xunit
 
         [Scenario]
         [InlineData(new object[] { true, typeof(NHibernateDao) })]     //internal impl
-        //[InlineData(new object[] { false, null })]   //no default impl
+        [InlineData(new object[] { false, null })]   //no default impl
         public virtual void GetImpl_No_setting_key(bool dllExists, Type expected)
         {
             _moqChecker.Setup(s => s.CheckForDll(DllName)).Returns(dllExists);

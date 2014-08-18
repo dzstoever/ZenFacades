@@ -8,6 +8,12 @@ namespace Zen.Ux.WinApp
         {
             InitializeComponent();
         }
-        
+
+
+
+        public new bool? ShowDialog()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -18,7 +18,7 @@ Zen Overview
 • Zen.Svcs
 	- WCF Service Behaviors (Impl Classes) + ServiceHost/HostFactory (Impl Classes)
 
-•*Zen.Svcs.Server
+•*Zen.Svcs.SelfHost(TopShelf)
 	- Stand-alone process to act as a server for Zen.Svcs.Hosts 
 
 • Zen.Svcs.WebHost
@@ -34,4 +34,4 @@ Zen Overview
 	- a 'shelved' component to act as a server for Quartz.Schedulers 
 	  running under the Topshelf windows service 
 
- * Topshelf - allows a console app and windows to service share the same code. 	
+ * Topshelf - allows a console app and windows service to share the same code. 	

@@ -6,7 +6,7 @@ namespace Zen.Svcs
     /// Simple response acknowledgements indicating success or failure.
     /// </summary>
     [DataContract]
-    public enum Acknowlege
+    public enum Acknowledge
     {
         [EnumMember]
         Failure = 0,

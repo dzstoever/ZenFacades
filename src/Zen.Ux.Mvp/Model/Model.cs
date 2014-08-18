@@ -73,7 +73,7 @@ namespace Zen.Ux.Mvp.Model
             if (response.CorrelationId != request.RequestId)
                 throw new ApplicationException("Login: RequestId and CorrelationId do not match.");
 
-            if (response.Acknowledge != Acknowlege.Success)
+            if (response.Acknowledge != Acknowledge.Success)
                 throw new ApplicationException(response.Message);
         }
 
@@ -89,7 +89,7 @@ namespace Zen.Ux.Mvp.Model
             if (response.CorrelationId != request.RequestId)
                 throw new ApplicationException("Logout: RequestId and CorrelationId do not match.");
 
-            if (response.Acknowledge != Acknowlege.Success)
+            if (response.Acknowledge != Acknowledge.Success)
                 throw new ApplicationException(response.Message);
         }
 

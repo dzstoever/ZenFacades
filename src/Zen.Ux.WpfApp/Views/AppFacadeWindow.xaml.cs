@@ -7,8 +7,8 @@ namespace Zen.Ux.WpfApp.Views
 {
     public partial class AppFacadeWindow : IMainView
     {
-        const string WindowTitle = "Zen WPF Application";
-        const string WelcomeMessage = "Façade Dashboard";
+        const string WindowTitle = "Zen Application";
+        const string WelcomeMessage = "Service Dashboard";
 
         private readonly ILogger _log = Aspects.GetLogger();
         private FacadeVM _viewModel;// { get { return this.DataContext as FacadeVM; } }
@@ -32,9 +32,10 @@ namespace Zen.Ux.WpfApp.Views
         
         private void LoginCommandExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            var window = new SignonScreen(null) { Owner = this };
-
-            if (window.ShowDialog() == true)
+            var window = new SignonScreen(_viewModel.Provider) { Owner = this };
+            var result = window.ShowDialog();
+            
+            if (result == true)
             {
                 LoginLabel.Content = " Logged In";
                 Announcement.Visibility = Visibility.Collapsed;
@@ -42,6 +43,11 @@ namespace Zen.Ux.WpfApp.Views
                 Cursor = Cursors.Wait;
                     _viewModel.LoadFacades();                
                 Cursor = Cursors.Arrow;
+
+                foreach (var facade in _viewModel.Facades)
+                {
+                    this.ViewMenu.DropDown.Items.Add(facade.MenuName);
+                }
 
                 CommandManager.InvalidateRequerySuggested();
             }
@@ -57,6 +63,11 @@ namespace Zen.Ux.WpfApp.Views
             //ViewModel.UnloadSchedulers();
             LoginLabel.Content = "Logged Out";
             Announcement.Visibility = Visibility.Visible;
+
+            //for (var i = 2; i < ViewMenu.DropDown.Items.Count; i++)
+            //{
+                ViewMenu.DropDown.Items.Clear();
+            //}
 
             CommandManager.InvalidateRequerySuggested();
         }

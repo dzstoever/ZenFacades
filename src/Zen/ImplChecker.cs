@@ -6,7 +6,7 @@ namespace Zen
     //Todo: add a dll version check 
     public class ImplChecker 
     {
-        public bool CheckForDll(string dllFileName)
+        public virtual bool CheckForDll(string dllFileName)
         {
             var baseDir = AppDomain.CurrentDomain.BaseDirectory;
             var searchPath = AppDomain.CurrentDomain.RelativeSearchPath;

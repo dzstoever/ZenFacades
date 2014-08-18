@@ -156,9 +156,9 @@ namespace Zen.Xunit.Tests.Svcs
                 loginRe.Message.LogMe(LogLevel.Info);
                 logoutRe.Message.LogMe(LogLevel.Info);
 
-                tokenRe.Acknowledge.Should().Be(Acknowlege.Success);                
-                loginRe.Acknowledge.Should().Be(Acknowlege.Success);                
-                logoutRe.Acknowledge.Should().Be(Acknowlege.Success);
+                tokenRe.Acknowledge.Should().Be(Acknowledge.Success);                
+                loginRe.Acknowledge.Should().Be(Acknowledge.Success);                
+                logoutRe.Acknowledge.Should().Be(Acknowledge.Success);
                 
             });
         }

@@ -55,7 +55,7 @@ Zen Overview
 	the Remote Facade pattern thus making them available anywhere, by anybody, at any time,
 	on any device.( Windows, Mac, Web, Mobile, etc. )
 
-• All services and applications are 'Hosted on the Cloud' regardless of whether you own and 
+• All services and applications can be 'Hosted on the Cloud' regardless of whether you own and 
 	maintain your own servers or purchase space from a third party provider.
 
 • Zen is based on SaaS principles and SOA architecture, leveraging the most current WCF technologies, 

@@ -78,7 +78,7 @@ namespace Zen.Ux.Mvvm
             var response = _appFacadeProxy.Login(request);
 
             if (request.RequestId != response.CorrelationId) throw new ApplicationException("Login: RequestId and CorrelationId do not match.");
-            if (response.Acknowledge != Acknowlege.Success) throw new ApplicationException(response.Message);
+            if (response.Acknowledge != Acknowledge.Success) throw new ApplicationException(response.Message);
         }
 
         public void Logout()
@@ -87,7 +87,7 @@ namespace Zen.Ux.Mvvm
             var response = _appFacadeProxy.Logout(request);
 
             if (request.RequestId != response.CorrelationId) throw new ApplicationException("Logout: RequestId and CorrelationId do not match.");
-            if (response.Acknowledge != Acknowlege.Success) throw new ApplicationException(response.Message);
+            if (response.Acknowledge != Acknowledge.Success) throw new ApplicationException(response.Message);
         }
 
 
@@ -102,7 +102,7 @@ namespace Zen.Ux.Mvvm
 
 
             if (request.RequestId != response.CorrelationId) throw new ApplicationException("RequestId and CorrelationId do not match.");
-            if (response.Acknowledge != Acknowlege.Success) throw new ApplicationException(response.Message);
+            if (response.Acknowledge != Acknowledge.Success) throw new ApplicationException(response.Message);
 
             // Move data from DTO to BMO
             var modelList = Mapper.Map<IList<FacadeDto>, IList<FacadeBmo>> (response.Facades);

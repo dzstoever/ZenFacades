@@ -84,7 +84,7 @@ namespace Zen.Svcs
         /// client. Default is success. Ebay.com uses this model.
         /// </summary>
         [DataMember]
-        public Acknowlege Acknowledge = Acknowlege.Success;
+        public Acknowledge Acknowledge = Acknowledge.Success;
 
         /// <summary>
         /// CorrelationId mostly returns the RequestId back to client. 

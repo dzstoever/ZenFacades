@@ -115,7 +115,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Dummys\" />
     <Folder Include="Ioc\Windsor\" />
   </ItemGroup>
   <ItemGroup>

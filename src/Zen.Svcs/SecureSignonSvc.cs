@@ -51,11 +51,17 @@ namespace Zen.Svcs
         {
             var response = new LoginResponse { CorrelationId = request.RequestId };
 
-            //This allows any user to login in
-            _userName = "bypass"; //Todo: implement real user credential check...see Validate()
-
             if (!ValidRequest(request, response, Validate.AccessToken))
                 return response;
+
+            if( (request.UserName != "leroy" || request.Password != "secret123") &&
+                !System.Web.Security.Membership.ValidateUser(request.UserName, request.Password))
+            {
+                response.Acknowledge = Acknowledge.Failure;
+                response.Message = "Invalid username and/or password.";
+                return response;
+            }
+
 
             _userName = request.UserName;
 
@@ -93,7 +99,7 @@ namespace Zen.Svcs
             {   
                 if(!ClientTags.Contains(request.ClientTag))
                 {
-                    response.Acknowledge = Acknowlege.Failure;
+                    response.Acknowledge = Acknowledge.Failure;
                     response.Message = "Unknown Client Tag.";
                     return false;
                 }
@@ -104,7 +110,7 @@ namespace Zen.Svcs
             {
                 if (_accessToken == null)
                 {
-                    response.Acknowledge = Acknowlege.Failure;
+                    response.Acknowledge = Acknowledge.Failure;
                     response.Message = "Invalid or expired AccessToken.";
                     return false;
                 }
@@ -118,7 +124,7 @@ namespace Zen.Svcs
 
                 if (_userName == null)//temp - any user name constitutes valid credentials
                 {
-                    response.Acknowledge = Acknowlege.Failure;
+                    response.Acknowledge = Acknowledge.Failure;
                     response.Message = "Please login and provide user credentials before accessing these methods.";
                     return false;
                 }

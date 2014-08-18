@@ -6,7 +6,7 @@ using Zen.Log;
 namespace Zen
 {
     /// <summary>
-    /// Provides some of the crosscutting components needed in many different programming scenarios,
+    /// Provides some of the cross-cutting components needed in many different programming scenarios,
     /// in order to isolate secondary or supporting functions from the main program's business logic. 
     /// <para>
     /// Each has an internal & default implementation with the option to override by specifying a

@@ -3,6 +3,7 @@ using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using NHibernate;
 using Zen.Data;
+using Zen.Log;
 
 namespace Zen.Ux.Bootstrap.Windsor
 {
@@ -15,7 +16,7 @@ namespace Zen.Ux.Bootstrap.Windsor
     {
 
         /// <summary>
-        /// This must be set prior to initializing the WindsorDI calling startup
+        /// This must be set prior to initializing the WindsorDI calling Startup()
         /// </summary>
         public static ISessionFactory SessionFactory { get; set; }
         
@@ -24,7 +25,15 @@ namespace Zen.Ux.Bootstrap.Windsor
 
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            if (SessionFactory == null) return;            
+            if (SessionFactory == null)
+            {
+                "SessionFactory is not set on DaoInstaller. Using NoDao.".LogMe(LogLevel.Warn);
+                container.Register(Component.For<IGenericDao>()
+                                   .ImplementedBy<NoDao>()
+                                   .LifestyleSingleton());
+                return;
+
+            }
 
             container.Register(Component.For<ISessionFactory>()
                                    .Instance(SessionFactory)

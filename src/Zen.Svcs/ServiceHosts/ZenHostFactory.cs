@@ -10,7 +10,6 @@ namespace Zen.Svcs.ServiceModel.Hosts
         public ZenHostFactory()
         {
             var di = Aspects.GetIocDI();
-
         }
 
         protected override ServiceHost CreateServiceHost(Type serviceType, Uri[] baseAddresses)

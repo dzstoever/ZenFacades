@@ -60,7 +60,7 @@ namespace Zen
 
         /// <summary>
         /// Returns the ClassName for 
-        /// 1) an override is provided in the config file
+        /// 1) an override that is provided in the config file
         /// 2) an internal implementation
         /// 3) the default implementation
         /// </summary>

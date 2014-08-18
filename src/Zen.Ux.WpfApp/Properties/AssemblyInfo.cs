@@ -8,7 +8,7 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("WPF Application")]
-[assembly: AssemblyDescription("Remote Façade access to multiple secured services deployed on the cloud. Anywhere, Anytime, Anyplace...on Any Device")]
+[assembly: AssemblyDescription("Remote Façade access to multiple secured services.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Silverback Software")]
 [assembly: AssemblyProduct("Zen.WpfApp")]

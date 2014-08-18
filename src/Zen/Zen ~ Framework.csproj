@@ -92,7 +92,7 @@
     <Compile Include="Svcs\Contracts\IRemoteFacade.cs" />
     <Compile Include="Svcs\Contracts\ISecureSignon.cs" />
     <Compile Include="Svcs\Contracts\ISecureVault.cs" />
-    <Compile Include="Svcs\Messages\Acknowlege.cs" />
+    <Compile Include="Svcs\Messages\Acknowledge.cs" />
     <Compile Include="Svcs\Messages\PersistTypes.cs" />
     <Compile Include="Svcs\Messages\RxRe-Base.cs" />
     <Compile Include="Svcs\Messages\RxRe-Facade.cs" />

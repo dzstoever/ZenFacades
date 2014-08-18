@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
         xmlns:commands="clr-namespace:Zen.Ux.WpfApp.Commands"
         xmlns:controls="clr-namespace:Zen.Ux.WpfApp.Controls"
-        Title="WPF Application -- Zen 4.0" Icon="..\Images\wpf.ico" Width="700" Height="400"  
+        Title="WPF Application -- Zen 4.0" Icon="..\Images\wpf.ico" Width="750" Height="350"  
         FontFamily="Segoe UI" FontSize="12" Background="White" Foreground="Black" WindowStartupLocation="CenterScreen">
 
     <Window.CommandBindings>
@@ -16,7 +16,7 @@
         <CommandBinding Command="commands:ActionCommands.AddCommand"    Executed="AddCommand_Executed"      CanExecute="AddCommand_CanExecute"/>
         <CommandBinding Command="commands:ActionCommands.EditCommand"   Executed="EditCommand_Executed"     CanExecute="EditCommand_CanExecute" />
         <CommandBinding Command="commands:ActionCommands.DeleteCommand" Executed="DeleteCommand_Executed"   CanExecute="DeleteCommand_CanExecute" />
-        <CommandBinding Command="commands:ActionCommands.ViewOrdersCommand" Executed="ViewJobsCommand_Executed" CanExecute="ViewJobsCommand_CanExecute" />
+        <CommandBinding Command="commands:ActionCommands.ViewCommand"   Executed="ViewCommand_Executed"     CanExecute="ViewCommand_CanExecute" />
         -->
         
         <CommandBinding Command="commands:ActionCommands.HowDoICommand" Executed="HowDoICommandExecuted" />
@@ -44,8 +44,17 @@
                     <Image Source="..\Images\Logout.png" />
                 </MenuItem.Icon>
             </MenuItem>            
-            
+
             <Separator />
+            <MenuItem Command="commands:ActionCommands.ExitCommand" >
+                <MenuItem.Icon>
+                    <Image Source="..\Images\exit.ico" />
+                </MenuItem.Icon>
+            </MenuItem>
+            
+        </ContextMenu>
+
+        <ContextMenu x:Key="editContextMenu">
             <MenuItem Command="ApplicationCommands.Cut" >
                 <MenuItem.Icon>
                     <Image Source="..\Images\Cut.png"  />
@@ -61,29 +70,20 @@
                     <Image Source="..\Images\Paste.png" />
                 </MenuItem.Icon>
             </MenuItem>
-
-            <Separator />
-            <MenuItem Command="commands:ActionCommands.ExitCommand" >
-                <MenuItem.Icon>
-                    <Image Source="..\Images\exit.ico" />
-                </MenuItem.Icon>
-            </MenuItem>
-            
         </ContextMenu>
 
-        <ContextMenu x:Key="toolsContextMenu">
+        <ContextMenu x:Key="viewContextMenu" >
 
-            <MenuItem Header="Admin" />
-
+            <!--
             <Separator />
-            <MenuItem Header="Customize..." />
-            <MenuItem Header="Options..." />
-
+            <MenuItem Header="PODs">                
+                <MenuItem Header="NOC" />
+                <MenuItem Header="KARL" />
+            </MenuItem>-->
         </ContextMenu >
-
-        <ContextMenu x:Key="winContextMenu" >
-
-            <MenuItem Header="Schedulers">
+        
+        <ContextMenu x:Key="toolsContextMenu">
+            <MenuItem Header="CRUD">
                 <MenuItem Header="_Add">
                     <!--Command="commands:ActionCommands.AddCommand" >-->
                     <MenuItem.Icon>
@@ -103,19 +103,17 @@
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator />
-                <MenuItem Header="View _Jobs">
+                <MenuItem Header="View Items">
                     <!--Command="commands:ActionCommands.ViewJobsCommand" >-->
                     <MenuItem.Icon>
                         <Image Source="..\Images\View.png"  />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
-
             <Separator />
-            <MenuItem Header="PODs">                
-                <MenuItem Header="NOC" />
-                <MenuItem Header="KARL" />
-            </MenuItem>
+            <MenuItem Header="Customize..." />
+            <MenuItem Header="Options..." />
+
         </ContextMenu >
 
         <ContextMenu x:Key="helpContextMenu">
@@ -290,30 +288,33 @@
                 DropDown="{StaticResource appContextMenu}">
             </controls:DropDownButton>
 
-            <controls:DropDownButton x:Name="ViewMenu"
-                Content="View" Canvas.Top="80"  Canvas.Left="230"  
+            <controls:DropDownButton x:Name="EditMenu"
+                Content="Edit" Canvas.Top="80"  Canvas.Left="230" 
                 Style="{StaticResource MenuButtonStyle}" 
-                DropDown="{StaticResource winContextMenu}">
+                DropDown="{StaticResource editContextMenu}">
+            </controls:DropDownButton>
+
+            <controls:DropDownButton x:Name="ViewMenu"
+                Content="View" Canvas.Top="80"  Canvas.Left="330"  
+                Style="{StaticResource MenuButtonStyle}" 
+                DropDown="{StaticResource viewContextMenu}">
             </controls:DropDownButton>
                         
             <controls:DropDownButton x:Name="ToolsMenu"
-                Content="Tools"  Canvas.Top="80"  Canvas.Left="330"  
+                Content="Tools"  Canvas.Top="80"  Canvas.Left="430"  
                 Style="{DynamicResource MenuButtonStyle}" 
                 DropDown="{StaticResource toolsContextMenu}">
             </controls:DropDownButton>
 
             <controls:DropDownButton x:Name="HelpMenu"
-                Content="Help" Canvas.Top="80"  Canvas.Left="430"  
+                Content="Help" Canvas.Top="80"  Canvas.Left="530"  
                 Style="{DynamicResource MenuButtonStyle}" 
                 DropDown="{StaticResource helpContextMenu}">
             </controls:DropDownButton>
 
             <TextBlock Name="Announcement" Canvas.Left="130" Canvas.Top="160" FontSize="14" Foreground="Black" Width="510" Height="149">
-                You are running the WPF demo application.<LineBreak /><LineBreak />
+                Use the Application-> Login menu to unlock your views.<LineBreak /><LineBreak />
                 
-                Use the Application-> Login menu to unlock the different facades it has to offer.<LineBreak /><LineBreak />
-                
-                Your life will take on new meaning and all of your wildest dreams will come true.
                 
             </TextBlock>
             

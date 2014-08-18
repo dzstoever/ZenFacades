@@ -33,12 +33,12 @@ namespace Zen.Ux.Mvvm
 
         public ICommand Launch
         {
-            get{ return _launchCommand ?? (_launchCommand = new DelegateCmd(ShowQuartz)); }
+            get{ return _launchCommand ?? (_launchCommand = new DelegateCmd(ShowFacade1)); }
             set { _launchCommand = value; }
         }
         private ICommand _launchCommand;
 
-        private void ShowQuartz()
+        private void ShowFacade1()
         {
             var view = _viewFactory.CreateView<IQuartzView>();
             ActivateView(view);
@@ -61,7 +61,7 @@ namespace Zen.Ux.Mvvm
                 //    break;
 
                 case "quartz":
-                    ShowQuartz();
+                    ShowFacade1();
                     break;
 
                 //case "quartz.scheduler":

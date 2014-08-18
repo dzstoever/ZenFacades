@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using Zen.BS;
+//using Zen.Ux.Bootstrap;
 using Zen.Ioc;
 using Zen.Log;
 using Zen.Ux.WinApp.Mvp;
@@ -26,8 +26,8 @@ namespace Zen.Ux.WinApp
 
             
             // add any installers from the Bootstrap assembly
-            WindsorDI.ConfigureFromAssembly = typeof(ZenBootstrapper).Assembly;            
-            using (var di = ZenProvider.GetIocDI())
+            WindsorDI.ConfigureFromAssembly = typeof(Zen.Svcs.Bootstrap.HostStartupShell).Assembly;            
+            using (var di = Aspects.GetIocDI())
             {
                 try
                 {   
@@ -38,7 +38,8 @@ namespace Zen.Ux.WinApp
                     //Log4netConfigurator.LogAllLevelMessages(logDI);
                 }
                 catch (Exception exc)
-                {   ZenProvider.GetLogger().Fatal("Could not initialize Ioc/DI.", exc); 
+                {
+                    Aspects.GetLogger().Fatal("Could not initialize Ioc/DI.", exc); 
                 }
                 Application.Run(di.Resolve<IMainView>() as Form);    
             }
